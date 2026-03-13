@@ -132,6 +132,29 @@ body { background: var(--white); color: var(--black); font-family:'Archivo',sans
 @keyframes float   { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
 @keyframes pulse   { 0%,100%{opacity:1} 50%{opacity:.3} }
 
+/* apple-like glass nav */
+.glass-nav {
+  background: rgba(247, 246, 242, 0.52);
+  backdrop-filter: saturate(180%) blur(18px);
+  -webkit-backdrop-filter: saturate(180%) blur(18px);
+  border-bottom: 1px solid rgba(8, 8, 7, 0.12);
+  box-shadow: 0 8px 24px rgba(8, 8, 7, 0.06);
+}
+
+/* fallback for browsers without backdrop-filter */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass-nav {
+    background: rgba(247, 246, 242, 0.9);
+  }
+}
+
+/* firefox fallback */
+@-moz-document url-prefix() {
+  .glass-nav {
+    background: rgba(247, 246, 242, 0.9);
+  }
+}
+
 .anim-fadeup-1 { opacity:0; animation:fadeUp .8s ease .05s forwards; }
 .anim-fadeup-2 { opacity:0; animation:fadeUp .9s cubic-bezier(.16,1,.3,1) .15s forwards; }
 .anim-fadeup-3 { opacity:0; animation:fadeUp .8s ease .35s forwards; }
@@ -143,7 +166,7 @@ body { background: var(--white); color: var(--black); font-family:'Archivo',sans
 `;
 
 /* ─── COMPONENT ──────────────────────────────────────────── */
-export default function LandingPage() {
+export function LandingPage() {
   const curRef  = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
   const rxRef   = useRef(0);
@@ -229,9 +252,9 @@ export default function LandingPage() {
   /* ── shared style objects (avoids Tailwind dependency) ── */
   const S = {
     /* layout */
-    page:         { background:"var(--white)", color:"var(--black)", fontFamily:"'Archivo',sans-serif", overflowX:"hidden" as const },
+    page:         { background:"var(--white)", color:"var(--black)", fontFamily:"'Archivo',sans-serif", overflowX:"hidden" as const, maxWidth:1440, margin:"0 auto", padding:"0 24px" },
     /* nav */
-    nav:          { position:"fixed" as const, top:0, left:0, right:0, zIndex:100, display:"flex", alignItems:"center", justifyContent:"space-between", padding:"20px 52px", background:"rgba(247,246,242,.9)", backdropFilter:"blur(20px)", borderBottom:"1px solid var(--rule)" },
+    nav:          { position:"fixed" as const, top:0, left:"50%", transform:"translateX(-50%)", width:"calc(100% - 48px)", maxWidth:1392, zIndex:100, display:"flex", alignItems:"center", justifyContent:"space-between", padding:"20px 28px" },
     navLogo:      { fontFamily:"'Archivo Black',sans-serif", fontSize:15, letterSpacing:"0.04em", color:"var(--black)" },
     navLinks:     { display:"flex", gap:36, listStyle:"none" as const },
     navA:         { fontSize:10, fontWeight:500, letterSpacing:"0.14em", textTransform:"uppercase" as const, color:"var(--dim)", textDecoration:"none" },
@@ -361,26 +384,65 @@ export default function LandingPage() {
   } as const;
 
   return (
-    <div style={S.page}>
+    <><div className="">
+    <div style={S.page} className="">
       {/* Cursor */}
       <div ref={curRef}  className="of-cur" />
       <div ref={ringRef} className="of-cur-ring" />
 
       {/* ── NAV ── */}
-      <nav style={S.nav}>
-        <div style={S.navLogo}>
-          ONLYFINANCE <sup style={{fontFamily:"'Archivo',sans-serif",fontWeight:300,fontSize:9,letterSpacing:"0.2em",opacity:.4,verticalAlign:"super",marginLeft:4}}>AI</sup>
-        </div>
-        <ul style={S.navLinks}>
-          {["How It Works","Features","For Students","Pricing"].map(l => (
-            <li key={l}><a href="#" style={S.navA}>{l}</a></li>
-          ))}
-        </ul>
-        <a href="#" style={S.navCta}>Early Access</a>
-      </nav>
+    <nav className="flex items-center justify-between h-16 fixed top-0 z-50 w-screen max-w-none m-0 px-0 left-[calc(50%-50vw)] bg-[#000000] border-b border-white/6 backdrop-blur-2xl p-0">
+  
+  {/* BRANDING: The "Hero" Logo Assembly */}
+  <div className="flex items-center gap-1 group cursor-pointer">
+    {/* Image Container with Subtle Glass Backing */}
+    <div className="relative flex items-center justify-center">
+      {/* Dynamic Background Glow */}
+      <div className="absolute -inset-4 bg-white/3 blur-2xl rounded-full group-hover:bg-white/8 transition-all duration-1000" />
+      
+      {/* The Logo: Massive & Crisp */}
+      <img
+        src="/Logo2.png"
+        alt="OnlyFinance"
+        className="h-12 w-12 md:h-14 left-2 md:w-14 object-contain relative z-10 brightness-0 invert transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-110 group-hover:rotate-2"
+      />
+    </div>
+
+    {/* Text Assembly */}
+    <div>
+      <h1>
+      <span className="text-sm tracking-widest text-white">Only</span>
+      <span className="text-sm tracking-widest text-white">FINANCE</span>
+      </h1>
+    </div>
+   
+  </div>
+
+  {/* NAVIGATION: Subtle Ghost Links */}
+  <ul className="hidden xl:flex items-center gap-12 ">
+    {["How It Works", "Features", "For Students", "Pricing"].map((item) => (
+      <li key={item}>
+        <a 
+          href={`#${item.toLowerCase().replace(/ /g, '')}`} 
+          className="text-[14px] font-medium text-white/30 hover:text-white transition-all duration-500 hover:tracking-widest"
+        >
+          {item}
+        </a>
+      </li>
+    ))}
+  </ul>
+
+  {/* CTA: Minimalist Weight */}
+  <div className="flex items-center gap-8">
+    <button className="hidden sm:block text-[14px] font-medium text-white/50 hover:text-white transition-colors">
+      Sign In
+    </button>
+   
+  </div>
+</nav>
 
       {/* ── HERO ── */}
-      <section style={S.hero}>
+      <section id="hero" style={S.hero}>
         {/* left */}
         <div style={S.heroLeft}>
           <div style={S.eyebrowWrap} className="anim-fadeup-1">
@@ -462,7 +524,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── PROBLEM ── */}
-      <section style={S.section}>
+      <section id="problem" style={S.section}>
         <div style={S.sHeader}>
           <div className="s-ghost-num">01</div>
           <div>
@@ -488,7 +550,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── SOLUTION ── */}
-      <section style={S.solSection}>
+      <section id="solution" style={S.solSection}>
         <div style={S.solEyebrow}>The Solution</div>
         <div>
           <span className="sol-h1">FROM REPORTER</span>
@@ -507,7 +569,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── COPILOT ── */}
-      <section style={S.copilotWrap}>
+      <section id="copilot" style={S.copilotWrap}>
         <div>
           <div style={S.chatWin}>
             <div style={S.chatHdr}>
@@ -547,7 +609,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── AUDIENCE ── */}
-      <section style={S.audSection}>
+      <section id="audience" style={S.audSection}>
         <div style={S.audEyebrow}>Who It's For</div>
         <h2 style={S.audHeadline}>
           BUILT FOR THE<br/>
@@ -569,7 +631,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── COMPARE ── */}
-      <section style={S.cmpSection}>
+      <section id="compare" style={S.cmpSection}>
         <div style={S.cmpHeader}>
           <div style={S.cmpSuper}>The Paradigm Shift</div>
           <h2 style={S.cmpTitle}>
@@ -605,7 +667,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section style={S.ctaSection}>
+      <section id="cta" style={S.ctaSection}>
         <div style={S.ctaBgWord}>CLARITY</div>
         <p style={S.ctaSuper}>Limited Beta — Free for Students</p>
         <h2 style={S.ctaTitle}>KNOW YOUR</h2>
@@ -635,5 +697,8 @@ export default function LandingPage() {
         </ul>
       </footer>
     </div>
+    </div></>
   );
 }
+
+export default LandingPage;

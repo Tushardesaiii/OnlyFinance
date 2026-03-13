@@ -17,19 +17,21 @@ export const GlassSidebar: React.FC = () => {
     <aside className="h-full w-sidebar bg-panel border-r border-white/[0.05] p-5 flex flex-col justify-between hidden md:flex animate-reveal">
       <div>
         {/* 1. BRANDING: High-Contrast Minimalist */}
-        <div className="flex items-center gap-3 mb-10 px-2">
-          <div className="relative group">
-            <div className="w-8 h-8 rounded-xl bg-accent-primary shadow-[0_0_20px_var(--color-accent-glow)] flex items-center justify-center">
-               <Zap size={16} className="text-black fill-black" />
-            </div>
-            {/* Visual Flare */}
-            <div className="absolute -inset-1 bg-accent-primary/20 blur-lg rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-          </div>
-          <div>
-            <h1 className="text-sm font-black tracking-[0.3em] text-white">ONLYFINANCE</h1>
-            <p className="text-[9px] font-bold text-white/20 uppercase tracking-widest leading-none mt-1">Institutional</p>
-          </div>
-        </div>
+       <div className="flex flex-col items-center justify-center gap-8 mb-5 px-1 group">
+  {/* The Hero Logo - Massive and Centered */}
+  <div className="relative bg-gradient-to-tr from-accent-primary/20 to-accent-secondary/20 rounded-full p-4">
+    {/* Subtle Background Glow (The "Aura" effect Apple uses for AI/Siri) */}
+   
+    
+    <img 
+      src="/Logo2.png" 
+      className="h-12 w-12 md:h-20 md:w-20 object-contain relative z-10 drop-shadow-2xl transition-transform duration-700 ease-out group-hover:scale-[1.02]" 
+      alt="OnlyFinance Logo" 
+    />
+   
+  </div>
+
+</div>
         
         {/* 2. NAVIGATION: Active-State Elevation */}
         <nav className="space-y-1">
