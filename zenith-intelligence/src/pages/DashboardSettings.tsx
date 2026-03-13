@@ -1,6 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { User, Bell, Shield, ChevronRight, LogOut, Save, Smartphone, Mail, Key } from 'lucide-react';
+import { User, Shield, ChevronRight, LogOut, Save, Smartphone, Mail, Key } from 'lucide-react';
 
 /**
  * SETTINGS UPGRADES:

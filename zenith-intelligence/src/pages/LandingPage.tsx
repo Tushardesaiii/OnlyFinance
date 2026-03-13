@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { Bot, ChevronRight, Activity, Shield, BarChart3, Sparkles, Lock, ArrowUpRight } from 'lucide-react';
+import { Bot, ChevronRight, Activity, Shield, Sparkles, Lock, ArrowUpRight } from 'lucide-react';
 
 /**
  * IMPROVEMENTS MADE:

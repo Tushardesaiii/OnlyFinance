@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { WealthHero } from '../components/WealthHero';
-import { DebtWealthInversionPanel } from '../components/DebtWealthInversionPanel';
+import { DebtSnowballSlider } from '../components/DebtSnowballSlider';
 import { Sparkles, ArrowRight, Zap, TrendingUp, ShieldCheck } from 'lucide-react';
 
 /**
@@ -24,14 +24,16 @@ export const DashboardOverview: React.FC = () => {
         
         {/* MAIN UTILITY AREA */}
         <div className="xl:col-span-8 space-y-6">
-          <DebtWealthInversionPanel />
+          <div className="bg-[#0A0A0A] border border-white/[0.05] rounded-2xl overflow-hidden shadow-sm">
+             <DebtSnowballSlider />
+          </div>
         </div>
 
         {/* 2. THE INTELLIGENCE QUEUE (Audit: Removed "ultra-glass" for a solid Anchor) */}
-        <aside className="xl:col-span-4 bg-[#0A0A0A] border border-white/8 rounded-2xl p-5 flex flex-col h-fit">
+        <aside className="xl:col-span-4 bg-[#0A0A0A] border border-white/[0.08] rounded-2xl p-5 flex flex-col h-fit">
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-lg bg-white/3 border border-white/10 flex items-center justify-center text-emerald-400">
+              <div className="w-9 h-9 rounded-lg bg-white/[0.03] border border-white/10 flex items-center justify-center text-emerald-400">
                 <Sparkles size={18} />
               </div>
               <div>
@@ -67,7 +69,7 @@ export const DashboardOverview: React.FC = () => {
             ].map((action, index) => (
               <div 
                 key={index} 
-                className="group bg-white/2 hover:bg-white/4 border border-white/5 rounded-xl p-3.5 transition-all cursor-pointer"
+                className="group bg-white/[0.02] hover:bg-white/[0.04] border border-white/[0.05] rounded-xl p-3.5 transition-all cursor-pointer"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex gap-3">

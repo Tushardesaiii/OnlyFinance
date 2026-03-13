@@ -184,7 +184,7 @@ export const DebtWealthInversionPanel: React.FC = () => {
                       }}
                       labelStyle={{ color: 'var(--text-primary)', fontSize: 12 }}
                       itemStyle={{ color: 'var(--text-secondary)', fontSize: 12 }}
-                      formatter={(value: unknown, name: string) => [formatCurrencyFull(Number(value)), name === 'debt' ? 'Debt Decay' : 'Wealth Growth']}
+                      formatter={(value: unknown, name: unknown) => [formatCurrencyFull(Number(value)), name === 'debt' ? 'Debt Decay' : 'Wealth Growth']}
                     />
                     {inversionPoint && (
                       <>
