@@ -89,7 +89,7 @@ export const DebtWealthInversionPanel: React.FC = () => {
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.45, ease: 'easeOut' }}
-        className="zenith-glass animate-reveal rounded-[1.75rem] p-(--space-6)"
+        className="onlyfinance-glass animate-reveal rounded-[1.75rem] p-(--space-6)"
       >
         <div className="flex flex-col gap-(--space-5)">
           <div className="flex flex-col gap-(--space-4) lg:flex-row lg:items-start lg:justify-between">
@@ -100,16 +100,16 @@ export const DebtWealthInversionPanel: React.FC = () => {
               </div>
               <h3 className="text-2xl text-(--text-primary)">Track the exact month your net worth turns positive.</h3>
               <p className="mt-2 max-w-2xl text-sm leading-relaxed text-(--text-secondary)">
-                Zenith OS models the crossover between liability decay and compounding wealth, then surfaces the first month your balance sheet flips from constrained to free.
+                OnlyFinance models the crossover between liability decay and compounding wealth, then surfaces the first month your balance sheet flips from constrained to free.
               </p>
             </div>
 
             <div className="grid grid-cols-2 gap-(--space-3) lg:min-w-[18rem]">
-              <div className="zenith-glass animate-reveal rounded-2xl p-(--space-4)" style={{ animationDelay: '80ms' }}>
+              <div className="onlyfinance-glass animate-reveal rounded-2xl p-(--space-4)" style={{ animationDelay: '80ms' }}>
                 <p className="text-[11px] uppercase tracking-[0.16em] text-(--text-tertiary)">Current Net Worth</p>
                 <p className="mt-2 num-tabular text-lg font-bold text-(--text-primary)">{formatCurrencyFull(currentNetWorth)}</p>
               </div>
-              <div className="zenith-glass animate-reveal rounded-2xl p-(--space-4)" style={{ animationDelay: '120ms' }}>
+              <div className="onlyfinance-glass animate-reveal rounded-2xl p-(--space-4)" style={{ animationDelay: '120ms' }}>
                 <p className="text-[11px] uppercase tracking-[0.16em] text-(--text-tertiary)">Freedom Month</p>
                 <p className="mt-2 text-lg font-bold text-emerald-300 text-glow-accent">{scenario.inversionLabel ?? 'Beyond Horizon'}</p>
               </div>
@@ -226,7 +226,7 @@ export const DebtWealthInversionPanel: React.FC = () => {
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.45, delay: 0.08, ease: 'easeOut' }}
-                className="zenith-glass animate-reveal rounded-2xl p-(--space-5)"
+                className="onlyfinance-glass animate-reveal rounded-2xl p-(--space-5)"
               >
                 <div className="flex items-center gap-2 text-emerald-300">
                   <Sparkles size={14} strokeWidth={1.75} />
@@ -243,7 +243,7 @@ export const DebtWealthInversionPanel: React.FC = () => {
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.45, delay: 0.12, ease: 'easeOut' }}
-                className="zenith-glass animate-reveal rounded-2xl p-(--space-5)"
+                className="onlyfinance-glass animate-reveal rounded-2xl p-(--space-5)"
               >
                 <div className="grid grid-cols-2 gap-(--space-3)">
                   <div>
@@ -273,7 +273,7 @@ export const DebtWealthInversionPanel: React.FC = () => {
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.45, delay: 0.16, ease: 'easeOut' }}
-                className="zenith-glass animate-reveal rounded-2xl p-(--space-5)"
+                className="onlyfinance-glass animate-reveal rounded-2xl p-(--space-5)"
               >
                 <div className="mb-(--space-4) flex items-center gap-2">
                   <BadgeIndianRupee size={16} strokeWidth={1.75} className="text-emerald-300" />

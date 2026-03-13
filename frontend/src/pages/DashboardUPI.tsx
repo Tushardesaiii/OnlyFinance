@@ -34,7 +34,7 @@ export const DashboardUPI: React.FC = () => {
            <div className="flex justify-between items-start">
               <div className="flex items-center gap-2">
                  <ShieldCheck className="text-emerald-300" size={20} strokeWidth={1.75} />
-                 <span className="text-emerald-100 font-medium tracking-widest text-xs">ZENITH BLACK</span>
+                 <span className="text-emerald-100 font-medium tracking-widest text-xs">ONLYFINANCE BLACK</span>
               </div>
               <CreditCard className="text-white/80" size={24} strokeWidth={1.75} />
            </div>
@@ -76,7 +76,7 @@ export const DashboardUPI: React.FC = () => {
               <div className="bg-white/5 border border-white/10 rounded-2xl p-4 flex justify-between items-center group cursor-pointer hover:bg-white/10 transition-colors">
                  <div>
                     <p className="text-xs text-slate-400 uppercase tracking-widest mb-1">Primary VPA</p>
-                    <p className="text-base font-medium text-white font-mono">tushar@zenith</p>
+                    <p className="text-base font-medium text-white font-mono">tushar@onlyfinance</p>
                  </div>
                  <button className="text-slate-400 group-hover:text-emerald-400 transition-colors">
                     <Copy size={14} strokeWidth={1.75} />

@@ -26,14 +26,14 @@ export const GlassSidebar: React.FC = () => {
             <div className="absolute -inset-1 bg-accent-primary/20 blur-lg rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
           </div>
           <div>
-            <h1 className="text-sm font-black tracking-[0.3em] text-white">ZENITH</h1>
+            <h1 className="text-sm font-black tracking-[0.3em] text-white">ONLYFINANCE</h1>
             <p className="text-[9px] font-bold text-white/20 uppercase tracking-widest leading-none mt-1">Institutional</p>
           </div>
         </div>
         
         {/* 2. NAVIGATION: Active-State Elevation */}
         <nav className="space-y-1">
-          <p className="px-3 mb-3 text-[10px] font-bold text-white/15 uppercase tracking-[0.2em]">Main Navigation</p>
+          <p className="px-3 mb-3 text-[10px] font-bold text-white/15 uppercase tracking-[0.2em]">OnlyFinance Navigation</p>
           {navItems.map((item, index) => {
             const Icon = item.icon;
             return (

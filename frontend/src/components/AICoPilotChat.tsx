@@ -47,19 +47,19 @@ export const AICoPilotChat: React.FC = () => {
   };
 
   return (
-    <aside className="w-full h-full bg-panel border-l border-white/[0.05] hidden xl:flex flex-col animate-reveal">
+    <aside className="w-full h-full bg-panel border-l border-white/5 hidden xl:flex flex-col animate-reveal">
       {/* 1. HEADER: Integrated & Subtle */}
-      <div className="p-4 border-b border-white/[0.05] flex items-center justify-between bg-white/[0.01]">
+      <div className="p-4 border-b border-white/5 flex items-center justify-between bg-white/1">
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
             <Sparkles size={14} />
           </div>
           <div>
-            <h3 className="text-[11px] font-bold text-white/90 uppercase tracking-widest">Zenith IQ</h3>
+            <h3 className="text-[11px] font-bold text-white/90 uppercase tracking-widest">OnlyFinance IQ</h3>
             <p className="text-[10px] text-emerald-500/80 font-medium">Neural Engine Active</p>
           </div>
         </div>
-        <div className="px-2 py-1 rounded bg-white/[0.05] border border-white/10 text-[9px] font-bold text-white/40 uppercase tracking-tighter">
+        <div className="px-2 py-1 rounded bg-white/5 border border-white/10 text-[9px] font-bold text-white/40 uppercase tracking-tighter">
           v4.2-Pro
         </div>
       </div>
@@ -75,7 +75,7 @@ export const AICoPilotChat: React.FC = () => {
             
             <div className={`group relative max-w-[90%] p-3.5 text-[12px] leading-[1.6] transition-all ${
               msg.sender === 'ai' 
-                ? 'bg-white/[0.03] border border-white/[0.08] rounded-2xl rounded-tl-none text-white/80' 
+                ? 'bg-white/3 border border-white/8 rounded-2xl rounded-tl-none text-white/80' 
                 : 'bg-emerald-500 text-black font-semibold rounded-2xl rounded-tr-none shadow-lg shadow-emerald-500/10'
             }`}>
               {msg.text}
@@ -92,7 +92,7 @@ export const AICoPilotChat: React.FC = () => {
         ))}
         
         {isTyping && (
-           <div className="flex gap-1.5 p-3 bg-white/[0.03] w-12 rounded-full border border-white/[0.05] items-center justify-center">
+           <div className="flex gap-1.5 p-3 bg-white/3 w-12 rounded-full border border-white/5 items-center justify-center">
              <div className="w-1 h-1 bg-emerald-500/40 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
              <div className="w-1 h-1 bg-emerald-500/40 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
              <div className="w-1 h-1 bg-emerald-500/40 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
@@ -101,7 +101,7 @@ export const AICoPilotChat: React.FC = () => {
       </div>
 
       {/* 3. INPUT AREA: High-Density Commands */}
-      <div className="p-4 bg-white/[0.01] border-t border-white/[0.05]">
+      <div className="p-4 bg-white/1 border-t border-white/5  ">
         <div className="relative group">
           <input 
             type="text" 
@@ -124,7 +124,7 @@ export const AICoPilotChat: React.FC = () => {
         </div>
         <div className="mt-3 flex items-center justify-center gap-1.5 opacity-40">
            <Info size={10} />
-           <span className="text-[10px] font-medium tracking-tight">System uses Llama-3-Zenith-Financial</span>
+           <span className="text-[10px] font-medium tracking-tight">System uses Llama-3-OnlyFinance-Financial</span>
         </div>
       </div>
     </aside>

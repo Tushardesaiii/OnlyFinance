@@ -1,4 +1,4 @@
-export const zenithTheme = {
+export const onlyFinanceTheme = {
   colors: {
     background: '#0b0f14',
     emerald: {

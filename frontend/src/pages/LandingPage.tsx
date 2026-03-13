@@ -22,7 +22,7 @@ export const LandingPage: React.FC = () => {
           <div className="w-6 h-6 rounded bg-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.3)] flex items-center justify-center">
             <div className="w-2 h-2 bg-black rounded-full" />
           </div>
-          <span className="text-sm font-bold tracking-[0.2em] uppercase">Zenith</span>
+          <span className="text-sm font-bold tracking-[0.2em] uppercase">OnlyFinance</span>
         </div>
         
         <div className="hidden md:flex gap-8 text-[13px] font-medium text-white/40">
@@ -35,7 +35,7 @@ export const LandingPage: React.FC = () => {
           onClick={() => navigate('/dashboard')}
           className="bg-white text-black hover:bg-white/90 px-4 py-1.5 rounded-full text-xs font-bold transition-all"
         >
-          Enter Platform
+          Enter OnlyFinance
         </button>
       </nav>
 
@@ -51,7 +51,7 @@ export const LandingPage: React.FC = () => {
             >
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/20 bg-emerald-500/5 text-emerald-400 text-[11px] font-semibold mb-8 tracking-wide uppercase">
                 <Sparkles size={12} />
-                Zenith Intelligence 2.0
+                OnlyFinance Intelligence 2.0
               </div>
 
               <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-[0.95]">
@@ -162,7 +162,7 @@ export const LandingPage: React.FC = () => {
       
       {/* 2% ANCHOR FOOTER */}
       <footer className="w-full py-10 px-6 md:px-12 border-t border-white/5 text-white/20 text-[11px] flex justify-between items-center">
-        <p>© 2026 ZENITH OPERATING SYSTEMS. ALL RIGHTS RESERVED.</p>
+        <p>© 2026 ONLYFINANCE OPERATING SYSTEMS. ALL RIGHTS RESERVED.</p>
         <div className="flex gap-6">
           <a href="#" className="hover:text-white transition-colors">Privacy</a>
           <a href="#" className="hover:text-white transition-colors">Terms</a>

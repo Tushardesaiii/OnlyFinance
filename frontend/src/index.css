@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  /* * ZENITH SURFACE SYSTEM (OKLCH)
+  /* * ONLYFINANCE SURFACE SYSTEM (OKLCH)
    * L = Lightness, C = Chroma (Intensity), H = Hue (220 is Institutional Blue-Deep)
    */
   --color-canvas: oklch(12% 0.01 220);         /* Deep Background */
@@ -14,7 +14,7 @@
   --color-stroke-medium: oklch(100% 0 0 / 12%);
   --color-stroke-strong: oklch(100% 0 0 / 25%);
 
-  /* ACCENTS (Zenith Emerald) */
+  /* ACCENTS (OnlyFinance Emerald) */
   --color-accent-primary: oklch(72% 0.16 155); 
   --color-accent-glow: oklch(72% 0.16 155 / 12%);
   --color-accent-soft: oklch(72% 0.16 155 / 5%);
@@ -75,7 +75,7 @@
   /* 3. PREMIUM COMPONENT UTILITIES */
 
   /* The "Glass-Plus": Reduced blur, sharp border, top-inner rim light */
-  .zenith-glass {
+  .onlyfinance-glass {
     background: oklch(100% 0 0 / 2%);
     backdrop-filter: blur(20px);
     border: 1px solid var(--color-stroke-subtle);
@@ -85,7 +85,7 @@
     @apply transition-all duration-300 ease-out;
   }
 
-  .zenith-glass:hover {
+  .onlyfinance-glass:hover {
     background: oklch(100% 0 0 / 4%);
     border-color: var(--color-stroke-strong);
   }
