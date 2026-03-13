@@ -3,6 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import { WealthHero } from '../components/WealthHero';
 import { DebtSnowballSlider } from '../components/DebtSnowballSlider';
 import { Sparkles, ArrowRight, Zap, TrendingUp, ShieldCheck } from 'lucide-react';
+import { opportunityQueue, type OpportunityIcon } from '../frontend/data';
+
+const iconMap: Record<OpportunityIcon, React.ComponentType<{ size?: number }>> = {
+  'trending-up': TrendingUp,
+  zap: Zap,
+  'shield-check': ShieldCheck,
+};
 
 /**
  * DASHBOARD UPGRADES:
@@ -44,29 +51,9 @@ export const DashboardOverview: React.FC = () => {
           </div>
 
           <div className="space-y-3 mb-6">
-            {[
-              { 
-                item: 'Shift idle cash to Arbitrage Fund', 
-                impact: '+0.6% annual yield', 
-                priority: 'High', 
-                icon: TrendingUp,
-                color: 'text-emerald-400' 
-              },
-              { 
-                item: 'Increase SIP by INR 2,000', 
-                impact: 'Goal ETA -22 months', 
-                priority: 'Medium', 
-                icon: Zap,
-                color: 'text-sky-400' 
-              },
-              { 
-                item: 'Prepay high-rate debt tranche', 
-                impact: 'Interest save INR 31,200', 
-                priority: 'High', 
-                icon: ShieldCheck,
-                color: 'text-emerald-400' 
-              }
-            ].map((action, index) => (
+            {opportunityQueue.map((action, index) => {
+              const ActionIcon = iconMap[action.icon];
+              return (
               <div 
                 key={index} 
                 className="group bg-white/[0.02] hover:bg-white/[0.04] border border-white/[0.05] rounded-xl p-3.5 transition-all cursor-pointer"
@@ -74,7 +61,7 @@ export const DashboardOverview: React.FC = () => {
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex gap-3">
                     <div className={`mt-0.5 ${action.color}`}>
-                      <action.icon size={14} />
+                      <ActionIcon size={14} />
                     </div>
                     <div>
                       <p className="text-[12px] text-white/90 font-semibold leading-snug">{action.item}</p>
@@ -92,7 +79,7 @@ export const DashboardOverview: React.FC = () => {
                   </div>
                 </div>
               </div>
-            ))}
+            );})}
           </div>
 
           {/* 3. PRIMARY ACTION: Solid, high-contrast button */}

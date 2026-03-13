@@ -1,21 +1,11 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo } from 'react';
 import { simulateDebtSnowball, calculateEMI } from '../utils/DebtCalculators';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { debtLiabilitiesData } from '../frontend/data';
 
 export const DebtSnowballSlider: React.FC = () => {
   const [extraPayment, setExtraPayment] = useState(5000);
-  const [liabilities, setLiabilities] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    // Mock data for liabilities
-    setTimeout(() => {
-      setLiabilities([
-        { principal: 750000, annualRate: 10.5, remainingMonths: 60 }
-      ]);
-      setLoading(false);
-    }, 1000);
-  }, []);
+  const liabilities = debtLiabilitiesData;
   
   // Example Debt Profile: Active EMIs
   const principal = liabilities.length > 0 ? liabilities[0].principal : 0;
@@ -23,17 +13,13 @@ export const DebtSnowballSlider: React.FC = () => {
   const minimumEmi = liabilities.length > 0 ? calculateEMI(principal, annualRate, liabilities[0].remainingMonths) : 0;
   
   const simulationData = useMemo(() => {
-    if (loading) return [];
     return simulateDebtSnowball(principal, annualRate, minimumEmi, extraPayment);
-  }, [principal, annualRate, minimumEmi, extraPayment, loading]);
+  }, [principal, annualRate, minimumEmi, extraPayment]);
 
   const monthsSaved = useMemo(() => {
-    if (loading) return 0;
     const baseData = simulateDebtSnowball(principal, annualRate, minimumEmi, 0);
     return baseData.length - simulationData.length;
-  }, [principal, annualRate, minimumEmi, simulationData.length, loading]);
-
-  if (loading) return <div className="ultra-glass p-4 rounded-2xl mt-4 h-80 animate-pulse bg-white/5" />;
+  }, [principal, annualRate, minimumEmi, simulationData.length]);
 
   return (
     <div className="ultra-glass p-4 rounded-2xl mt-4">

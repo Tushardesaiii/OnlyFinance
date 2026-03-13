@@ -1,28 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { TrendingUp, ArrowUpRight, ArrowDownRight, Zap } from 'lucide-react';
+import { wealthSummaryData } from '../frontend/data';
 
 export const WealthHero: React.FC = () => {
-  const [wealthSummary, setWealthSummary] = useState<any>(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    // Mock data instead of fetching from backend
-    setTimeout(() => {
-      setWealthSummary({
-        netWorth: 4250000,
-        trend: 12.4,
-        assets: {
-          equity: 2500000,
-          fixedDeposits: 1000000,
-          activeDebt: 750000
-        }
-      });
-      setLoading(false);
-    }, 800);
-  }, []);
-
-  if (loading) return <div className="w-full h-44 animate-pulse bg-white/5 rounded-2xl" />;
+  const wealthSummary = wealthSummaryData;
 
   const formatCurrency = (val: number) => `₹${val.toLocaleString('en-IN')}`;
 
